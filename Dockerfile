@@ -9,8 +9,11 @@ RUN apk update --no-cache \
     && apk del wget
 
 COPY ./teleport.yaml /teleport.tmpl
-ARG PUBLIC_ADDRESS CLUSTER_NAME SERVICE_TYPE
+ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
 
 FROM public.ecr.aws/gravitational/teleport-ent-distroless:15.4.4 as base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
+
+# Behind Railway reverse proxy
+CMD ["--insecure-no-tls"]
