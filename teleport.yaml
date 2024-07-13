@@ -1,12 +1,12 @@
 {{- $type := default .Env.SERVICE_TYPE "proxy" | lower -}}
 {{- if eq $type "auth" }}
-storage:
-  type: postgresql
-  conn_string: "{{ default .Env.DATABASE_URL "" }}"
 auth_service:
   cluster_name: "{{ default .Env.CLUSTER_NAME "" }}"
   enabled: true
 teleport:
+  storage:
+    type: postgresql
+    conn_string: "{{ default .Env.DATABASE_URL "" }}"
   auth_server: "127.0.0.1:3025"
 {{- else }}
   enabled: false
