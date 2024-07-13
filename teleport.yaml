@@ -1,5 +1,5 @@
-version: v3
 {{- $type := default .Env.SERVICE_TYPE "proxy" | lower -}}
+version: v3
 auth_service:
 {{- if eq $type "auth" }}
   cluster_name: "{{ default .Env.CLUSTER_NAME "" }}"
