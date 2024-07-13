@@ -9,7 +9,7 @@ RUN apk update --no-cache \
     && apk del wget
 
 COPY ./teleport.yaml /teleport.tmpl
-ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER
+ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER PROXY_TOKEN
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
 
 FROM public.ecr.aws/gravitational/teleport-distroless:16.0.4 AS base
