@@ -1,3 +1,4 @@
+version: v3
 {{- $type := default .Env.SERVICE_TYPE "proxy" | lower -}}
 {{- if eq $type "auth" }}
 auth_service:
