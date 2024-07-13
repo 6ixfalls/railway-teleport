@@ -4,6 +4,8 @@ auth_service:
 {{- if eq $type "auth" }}
   cluster_name: "{{ default .Env.CLUSTER_NAME "" }}"
   listen_addr: "[::]:3025"
+  tokens:
+    - "proxy:{{ default .Env.PROXY_TOKEN "" }}"
   enabled: true
 teleport:
   storage:
@@ -19,6 +21,7 @@ proxy_service:
   enabled: true
 teleport:
   auth_server: "{{ default .Env.AUTH_SERVER "" }}:3025"
+  auth_token: "{{ default .Env.PROXY_TOKEN "" }}"
 {{- else }}
   enabled: false
 {{- end }}
