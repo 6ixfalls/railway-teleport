@@ -12,7 +12,7 @@ COPY ./teleport.yaml /teleport.tmpl
 ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
 
-FROM public.ecr.aws/gravitational/teleport-ent-distroless:15.4.4 as base
+FROM public.ecr.aws/gravitational/teleport-distroless:16.0.4 as base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 
 # Behind Railway reverse proxy
