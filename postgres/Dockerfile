@@ -12,9 +12,6 @@ RUN apt-get update \
         clang-14 \
         llvm-14 \
         postgresql-server-dev-$PG_MAJOR \
-    && add-apt-repository "deb http://ftp.debian.org/debian testing main contrib" \
-    && apt-get update && apt-get install -f -y --no-install-recommends \
-        libprotobuf-c-dev=$PROTOC_VERSION.* \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/eulerto/wal2json -b master --single-branch \
