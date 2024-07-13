@@ -3,12 +3,13 @@ version: v3
 auth_service:
 {{- if eq $type "auth" }}
   cluster_name: "{{ default .Env.CLUSTER_NAME "" }}"
+  listen_addr: "[::]:3025"
   enabled: true
 teleport:
   storage:
     type: postgresql
     conn_string: "{{ default .Env.DATABASE_URL "" }}"
-  auth_server: "127.0.0.1:3025"
+#  auth_server: "127.0.0.1:3025"
 {{- else }}
   enabled: false
 {{- end }}
