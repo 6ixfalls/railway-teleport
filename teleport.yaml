@@ -23,6 +23,8 @@ proxy_service:
 teleport:
   auth_server: "{{ default .Env.AUTH_SERVER "" }}:3025"
   auth_token: "{{ default .Env.PROXY_TOKEN "" }}"
+  log:
+    severity: DEBUG
 {{- else }}
   enabled: false
 {{- end }}
