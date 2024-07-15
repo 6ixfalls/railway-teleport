@@ -6,7 +6,7 @@ auth_service:
   listen_addr: "[::]:3025"
   tokens:
     - "proxy:{{ default .Env.PROXY_TOKEN "" }}"
-  proxy_listener_mode: separate
+  proxy_listener_mode: multiplex
   enabled: true
 teleport:
   storage:
@@ -19,8 +19,6 @@ teleport:
 proxy_service:
 {{- if eq $type "proxy" }}
   public_addr: "{{ default .Env.CLUSTER_NAME "" }}:443"
-  listen_addr: "0.0.0.0:3023"
-  tunnel_listen_addr: "0.0.0.0:3024"
   web_listen_addr: "0.0.0.0:3080"
   enabled: true
 teleport:

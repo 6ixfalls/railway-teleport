@@ -16,4 +16,4 @@ FROM public.ecr.aws/gravitational/teleport-distroless:16.0.4 AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 
 # Behind Railway reverse proxy
-CMD ["--insecure-no-tls"]
+#CMD ["--insecure-no-tls"]
