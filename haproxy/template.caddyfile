@@ -16,7 +16,6 @@
 	}
 
 	reverse_proxy https://{HOST_PORT} {
-		header_up Host {upstream_hostport}
         transport http {
             tls
             tls_insecure_skip_verify
