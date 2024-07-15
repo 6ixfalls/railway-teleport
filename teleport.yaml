@@ -18,7 +18,7 @@ teleport:
 proxy_service:
 {{- if eq $type "proxy" }}
   public_addr: "{{ default .Env.CLUSTER_NAME "" }}:443"
-  web_listen_addr: "0.0.0.0:3080"
+  web_listen_addr: "[::]:3080"
   enabled: true
 teleport:
   auth_server: "{{ default .Env.AUTH_SERVER "" }}:3025"
