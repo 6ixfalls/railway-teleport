@@ -18,5 +18,3 @@ RUN dockerize -template /apply-on-startup.tmpl:/apply-on-startup.yaml
 FROM public.ecr.aws/gravitational/teleport-distroless:16.0.4 AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 COPY --from=config /apply-on-startup.yaml /etc/teleport/apply-on-startup.yaml
-
-CMD ["--apply-on-startup=/etc/teleport/apply-on-startup.yaml"]
