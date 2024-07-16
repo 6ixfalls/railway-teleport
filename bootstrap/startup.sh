@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -e -x
 
 cat /etc/teleport/apply-on-startup.yaml
 teleport start --config=/etc/teleport/teleport.yaml --apply-on-startup=/etc/teleport/apply-on-startup.yaml &
