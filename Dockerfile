@@ -11,10 +11,7 @@ RUN apk update --no-cache \
 COPY ./teleport.yaml /teleport.tmpl
 ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER PROXY_TOKEN RAILWAY_TCP_PROXY_DOMAIN RAILWAY_TCP_PROXY_PORT
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
-COPY ./apply-on-startup.yaml /apply-on-startup.tmpl
-ARG ADMIN_USER
-RUN dockerize -template /apply-on-startup.tmpl:/apply-on-startup.yaml
 
 FROM public.ecr.aws/gravitational/teleport-distroless:16.0.4 AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
-COPY --from=config /apply-on-startup.yaml /etc/teleport/apply-on-startup.yaml
+

@@ -1,0 +1,14 @@
+version: v3
+auth_service:
+  cluster_name: "{{ default .Env.CLUSTER_NAME "" }}"
+  listen_addr: "[::]:3025"
+  proxy_listener_mode: multiplex
+  enabled: true
+teleport:
+  storage:
+    type: postgresql
+    conn_string: "{{ default .Env.DATABASE_URL "" }}"
+proxy_service:
+  enabled: false
+ssh_service:
+  enabled: false
