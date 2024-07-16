@@ -22,6 +22,14 @@ proxy_service:
   web_listen_addr: "0.0.0.0:3080"
   ssh_public_addr: "{{ default .Env.RAILWAY_TCP_PROXY_DOMAIN "" }}:{{ default .Env.RAILWAY_TCP_PROXY_PORT "" }}"
   tunnel_public_addr: "{{ default .Env.RAILWAY_TCP_PROXY_DOMAIN "" }}:{{ default .Env.RAILWAY_TCP_PROXY_PORT "" }}"
+  kube_public_addr: "{{ default .Env.RAILWAY_TCP_PROXY_DOMAIN "" }}:{{ default .Env.RAILWAY_TCP_PROXY_PORT "" }}"
+  kube_listen_addr: "0.0.0.0:3080"
+  mysql_public_addr: "{{ default .Env.RAILWAY_TCP_PROXY_DOMAIN "" }}:{{ default .Env.RAILWAY_TCP_PROXY_PORT "" }}"
+  mysql_listen_addr: "0.0.0.0:3080"
+  postgres_public_addr: "{{ default .Env.RAILWAY_TCP_PROXY_DOMAIN "" }}:{{ default .Env.RAILWAY_TCP_PROXY_PORT "" }}"
+  postgres_listen_addr: "0.0.0.0:3080"
+  mongo_public_addr: "{{ default .Env.RAILWAY_TCP_PROXY_DOMAIN "" }}:{{ default .Env.RAILWAY_TCP_PROXY_PORT "" }}"
+  mongo_listen_addr: "0.0.0.0:3080"
   enabled: true
 teleport:
   auth_server: "{{ default .Env.AUTH_SERVER "" }}:3025"
