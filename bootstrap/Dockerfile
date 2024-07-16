@@ -18,6 +18,6 @@ RUN dockerize -template /apply-on-startup.tmpl:/apply-on-startup.yaml
 FROM public.ecr.aws/gravitational/teleport-distroless-debug:16.0.4 AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 COPY --from=config /apply-on-startup.yaml /etc/teleport/apply-on-startup.yaml
-COPY --chmod=777 ./startup.sh /startup.sh
+COPY --chmod=777 ./startup.sh /etc/teleport/startup.sh
 
-ENTRYPOINT ["/usr/bin/dumb-init", "/startup.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "/bin/sh", "-c", "/etc/teleport/startup.sh"]
