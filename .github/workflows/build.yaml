@@ -4,8 +4,8 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "containers/**"
-      - ".github/workflows/build.yml"
+      - "postgres/**"
+      - ".github/workflows/build.yaml"
 
 env:
   REGISTRY: ghcr.io
