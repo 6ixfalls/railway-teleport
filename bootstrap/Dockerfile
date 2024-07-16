@@ -9,7 +9,7 @@ RUN apk update --no-cache \
     && apk del wget
 
 COPY ./teleport.yaml /teleport.tmpl
-ARG CLUSTER_NAME DATABASE_URL
+ARG CLUSTER_NAME DATABASE_URL PROXY_TOKEN
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
 COPY ./apply-on-startup.yaml /apply-on-startup.tmpl
 ARG ADMIN_USER
