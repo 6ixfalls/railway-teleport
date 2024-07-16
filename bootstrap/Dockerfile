@@ -20,4 +20,4 @@ COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 COPY --from=config /apply-on-startup.yaml /etc/teleport/apply-on-startup.yaml
 COPY --chmod=777 ./startup.sh /etc/teleport/startup.sh
 
-ENTRYPOINT ["/usr/bin/dumb-init", "/bin/busybox", "sh", "-c", "/etc/teleport/startup.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "/busybox/sh", "-c", "/etc/teleport/startup.sh"]

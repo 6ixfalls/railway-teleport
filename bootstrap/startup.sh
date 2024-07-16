@@ -1,4 +1,4 @@
-#!/bin/busybox sh
+#!/busybox/sh
 set -e -x
 
 cat /etc/teleport/apply-on-startup.yaml
