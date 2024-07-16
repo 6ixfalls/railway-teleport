@@ -1,7 +1,7 @@
 version: v3
 auth_service:
   cluster_name: "{{ default .Env.CLUSTER_NAME "" }}"
-  listen_addr: "[::]:3025"
+  listen_addr: "0.0.0.0:3025"
   proxy_listener_mode: multiplex
   enabled: true
 teleport:
