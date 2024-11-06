@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended"
   ],
-  "packageRules": {
+  "packageRules": [
     {
       "description": ["Teleport"],
       "groupName": "Teleport",
@@ -13,6 +13,6 @@
         "commitMessageTopic": "{{{groupName}}} group"
       },
       "separateMinorPatch": true
-    },
-  }
+    }
+  ]
 }
