@@ -19,7 +19,7 @@ jobs:
         include:
           - image: "ghcr.io/6ixfalls/teleport-postgres"
             context: "{{defaultContext}}:postgres"
-            tagFrom: "./postgres/Dockerfile"
+            tagFrom: "./postgres/version"
     runs-on: ubuntu-latest
     permissions:
       contents: read
