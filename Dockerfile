@@ -12,6 +12,6 @@ COPY ./teleport.yaml /teleport.tmpl
 ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER PROXY_TOKEN RAILWAY_TCP_PROXY_DOMAIN RAILWAY_TCP_PROXY_PORT
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
 
-FROM public.ecr.aws/gravitational/teleport-distroless:16.4.3 AS base
+FROM public.ecr.aws/gravitational/teleport-distroless:16.4.12 AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 
