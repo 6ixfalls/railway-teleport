@@ -15,7 +15,7 @@ COPY ./apply-on-startup.yaml /apply-on-startup.tmpl
 ARG ADMIN_USER
 RUN dockerize -template /apply-on-startup.tmpl:/apply-on-startup.yaml
 
-FROM public.ecr.aws/gravitational/teleport-distroless-debug:16.0.4 AS base
+FROM public.ecr.aws/gravitational/teleport-distroless-debug:17.1.1 AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 COPY --from=config /apply-on-startup.yaml /etc/teleport/apply-on-startup.yaml
 COPY --chmod=777 ./startup.sh /etc/teleport/startup.sh
