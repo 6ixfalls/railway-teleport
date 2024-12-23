@@ -13,6 +13,6 @@ ARG CLUSTER_NAME SERVICE_TYPE DATABASE_URL AUTH_SERVER PROXY_TOKEN RAILWAY_TCP_P
 RUN dockerize -template /teleport.tmpl:/teleport.yaml
 
 ARG TELEPORT_IMAGE=public.ecr.aws/gravitational/teleport-distroless:17.1.1
-FROM $TELEPORT_IMAGE AS base
+FROM ${TELEPORT_IMAGE} AS base
 COPY --from=config /teleport.yaml /etc/teleport/teleport.yaml
 
