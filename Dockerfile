@@ -1,6 +1,6 @@
 ARG TELEPORT_IMAGE=public.ecr.aws/gravitational/teleport-distroless:17.1.1
 
-FROM alpine:3.20 AS config
+FROM alpine:3.21 AS config
 
 # Add dockerize for config templating
 ENV DOCKERIZE_VERSION=v0.7.0
