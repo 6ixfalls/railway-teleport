@@ -4,3 +4,13 @@ metadata:
   name: "{{ default .Env.ADMIN_USER "" }}"
 spec:
   roles: ['editor', 'auditor', 'access']
+---
+kind: cluster_auth_preference
+version: v2
+metadata:
+  name: cluster-auth-preference
+spec:
+  type: local
+  second_factor: "on"
+  webauthn:
+    rp_id: "{{ default .Env.CLUSTER_NAME "" }}"
