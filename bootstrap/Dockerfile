@@ -1,4 +1,4 @@
-FROM alpine:3.20 AS config
+FROM alpine:3.22 AS config
 
 # Add dockerize for config templating
 ENV DOCKERIZE_VERSION=v0.7.0
