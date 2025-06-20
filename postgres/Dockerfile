@@ -1,4 +1,4 @@
-FROM postgres:16 AS build
+FROM postgres:17 AS build
 
 ENV WAL2JSON_COMMIT_ID=wal2json_2_6
 
