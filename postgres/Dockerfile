@@ -21,6 +21,6 @@ RUN git clone https://github.com/eulerto/wal2json -b master --single-branch \
     && cd / \
     && rm -rf wal2json
 
-FROM ghcr.io/railwayapp-templates/postgres-ssl:16
+FROM ghcr.io/railwayapp-templates/postgres-ssl:17
 
 COPY --from=build /usr/lib/postgresql/$PG_MAJOR/lib/wal2json.so /usr/lib/postgresql/$PG_MAJOR/lib/
