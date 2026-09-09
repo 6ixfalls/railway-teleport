@@ -1,4 +1,4 @@
-ARG TELEPORT_IMAGE=public.ecr.aws/gravitational/teleport-distroless:17.5.2
+ARG TELEPORT_IMAGE=public.ecr.aws/gravitational/teleport-distroless:17.7.29
 
 FROM alpine:3.20 AS config
 
